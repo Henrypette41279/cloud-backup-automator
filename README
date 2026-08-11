@@ -1,0 +1,52 @@
+# ☁️ Cloud Storage Backup Automator
+
+A Python tool that automates backing up local files and folders to AWS S3 cloud storage, with automatic bucket creation, date-organized backups, and backup listing.
+
+Built to apply Cloud Computing concepts learned during my Big Data & Cloud Computing internship (YBI Foundation).
+
+## 💡 Features
+- Automatically creates an S3 bucket if it doesn't exist
+- Uploads single files or entire folders (recursively)
+- Organizes backups by date for easy tracking
+- Lists all existing backups with file size and last-modified date
+- Clear error handling for missing credentials or failed uploads
+
+## 🛠️ Tech Used
+- Python 3
+- boto3 (AWS SDK for Python)
+
+## 🚀 How to Run
+1. Install dependencies:
+   ```bash
+   pip install boto3
+   ```
+2. Configure AWS credentials:
+   ```bash
+   aws configure
+   ```
+3. Run the script:
+   ```bash
+   python cloud_backup.py
+   ```
+4. Enter your S3 bucket name and the local folder you want to back up.
+
+## 📷 Example Output
+```
+=== Cloud Storage Backup Automator ===
+
+Enter your S3 bucket name: my-backup-bucket
+Enter the local folder path to back up: ./documents
+
+Bucket 'my-backup-bucket' already exists.
+Uploaded: ./documents/report.pdf -> s3://my-backup-bucket/backup/2026-08-11/report.pdf
+Uploaded: ./documents/notes.txt -> s3://my-backup-bucket/backup/2026-08-11/notes.txt
+
+Backup complete. Uploaded: 2, Failed: 0
+
+--- Backups in 'my-backup-bucket' ---
+backup/2026-08-11/report.pdf  (245.3 KB)  Last modified: 2026-08-11 10:20:00+00:00
+backup/2026-08-11/notes.txt  (2.1 KB)  Last modified: 2026-08-11 10:20:01+00:00
+```
+
+## 👤 Author
+Ghulam Hassan — Big Data & Cloud Computing Trained | IT Professional
